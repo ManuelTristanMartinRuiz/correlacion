@@ -30,6 +30,6 @@ panel.cor <- function(x, y, digits = 2, prefix = "", cex.cor, ...) {
 }
 #Dibujamos la matriz de correlación
 pairs(data,
-      upper.panel = panel.cor,
-      lower.panel = panel.smooth)
+      upper.panel = panel.cor, # Panel de correlación
+      lower.panel = panel.smooth) #Curvas de regresión suavizadas
 ```
