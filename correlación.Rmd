@@ -33,3 +33,4 @@ pairs(data,
       upper.panel = panel.cor, # Panel de correlación
       lower.panel = panel.smooth) #Curvas de regresión suavizadas
 ```
+
