@@ -34,3 +34,12 @@ pairs(data,
       lower.panel = panel.smooth) #Curvas de regresión suavizadas
 ```
 
+```{r, echo=True}
+cor.test(data$longitud, data$peso)
+```
+
+```{r, warning=FALSE}
+library(correlation)
+resultados <- correlation(data)
+resultados
+```
