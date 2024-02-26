@@ -1,0 +1,14 @@
+---
+title: "correlación"
+author: "Manuel Martín"
+date: "2024-02-26"
+output: html_document
+---
+
+###Ejercicio 1
+
+```{r, echo=True}
+library(readxl)
+data <- as.data.frame(read_excel("C:/Users/manueltristan/Documents/correlacion/data.xlsx"))
+print(data)
+```
