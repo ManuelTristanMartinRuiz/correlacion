@@ -1,0 +1,427 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={correlación},
+  pdfauthor={Manuel Martín},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{correlación}
+\author{Manuel Martín}
+\date{2024-02-26}
+
+\begin{document}
+\maketitle
+
+\#\#\#Ejercicio 1
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readxl)}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{read\_excel}\NormalTok{(}\StringTok{"C:/Users/manueltristan/Documents/correlacion/data.xlsx"}\NormalTok{))}
+\FunctionTok{View}\NormalTok{(data)}
+\FunctionTok{print}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    longitud ancho grosor   peso
+## 1      12.4   3.6  17.36  167.0
+## 2      22.6   4.3  21.82  342.1
+## 3      17.9   4.1  13.54  322.9
+## 4      10.2  10.2  40.90  154.8
+## 5      16.8   5.7  34.06  358.1
+## 6      13.3   4.1  35.36  227.9
+## 7      14.1   5.8 108.64  323.8
+## 8      10.2   5.9 125.64  285.2
+## 9      22.5   6.2  80.20  613.8
+## 10     16.9   3.6  60.48  254.3
+## 11     19.1   4.1 124.70  310.1
+## 12     25.8   4.7 195.78  426.8
+## 13     22.5   3.9 121.58  521.2
+## 14     27.6  10.2  33.12  765.1
+## 15     38.0  10.2  61.58 1217.2
+## 16     72.4   6.4  38.48 2446.5
+## 17     37.5   3.9 104.94  675.7
+## 18     10.2   2.7  22.24   90.9
+## 19     11.6   2.0  35.74   86.8
+## 20     10.8   2.7  54.68  109.1
+## 21     11.4   1.8 260.88   67.7
+## 22     10.2   2.8  46.76  204.5
+## 23     10.2   3.3   0.00  170.3
+## 24     18.6   2.7   0.00  176.8
+## 25     24.4   4.4   0.00  543.2
+## 26     23.5   4.5   0.00  628.2
+## 27     24.8   3.5   0.00  401.0
+## 28     14.1   3.9   0.00  302.4
+## 29     24.6   4.8   0.00  623.5
+## 30     30.9   6.0   0.00  978.9
+## 31     20.2   5.7   0.00  607.9
+## 32     12.8   2.8   0.00  165.6
+## 33     16.9   3.6   0.00  307.9
+## 34     14.2   2.8   0.00  192.4
+## 35     18.0   5.3   0.00  524.7
+## 36     11.7   2.4   0.00  111.2
+## 37     14.1   2.4   0.00  178.7
+## 38     17.7   3.9   0.00  273.4
+## 39     36.6   6.0   0.00 1304.4
+## 40     12.3   5.4   0.00  233.8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Función para agregar coeficientes de correlación}
+\NormalTok{panel.cor }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, y, }\AttributeTok{digits =} \DecValTok{2}\NormalTok{, }\AttributeTok{prefix =} \StringTok{""}\NormalTok{, cex.cor, ...) \{}
+\NormalTok{  usr }\OtherTok{\textless{}{-}} \FunctionTok{par}\NormalTok{(}\StringTok{"usr"}\NormalTok{)}
+  \FunctionTok{on.exit}\NormalTok{(}\FunctionTok{par}\NormalTok{(usr))}
+  \FunctionTok{par}\NormalTok{(}\AttributeTok{usr =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{ ,}\DecValTok{1}\NormalTok{))}
+\NormalTok{  Cor }\OtherTok{\textless{}{-}} \FunctionTok{abs}\NormalTok{(}\FunctionTok{cor}\NormalTok{(x, y)) }
+\NormalTok{  txt }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(prefix, }\FunctionTok{format}\NormalTok{(}\FunctionTok{c}\NormalTok{(Cor, }\FloatTok{0.123456789}\NormalTok{), }\AttributeTok{digits =}\NormalTok{ digits)[}\DecValTok{1}\NormalTok{])}
+  \ControlFlowTok{if}\NormalTok{(}\FunctionTok{missing}\NormalTok{(cex.cor)) \{}
+\NormalTok{    cex.cor }\OtherTok{\textless{}{-}} \FloatTok{0.4} \SpecialCharTok{/} \FunctionTok{strwidth}\NormalTok{(txt)}
+\NormalTok{  \}}
+  \FunctionTok{text}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\FloatTok{0.5}\NormalTok{, txt,}
+       \AttributeTok{cex =} \DecValTok{1} \SpecialCharTok{+}\NormalTok{ cex.cor}\SpecialCharTok{*}\NormalTok{Cor)}
+\NormalTok{\}}
+\CommentTok{\#Dibujamos la matriz de correlación}
+\FunctionTok{pairs}\NormalTok{(data,}
+      \AttributeTok{upper.panel =}\NormalTok{ panel.cor, }\CommentTok{\# Panel de correlación}
+      \AttributeTok{lower.panel =}\NormalTok{ panel.smooth) }\CommentTok{\#Curvas de regresión suavizadas}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in par(usr): argument 1 does not name a graphical parameter
+
+## Warning in par(usr): argument 1 does not name a graphical parameter
+
+## Warning in par(usr): argument 1 does not name a graphical parameter
+
+## Warning in par(usr): argument 1 does not name a graphical parameter
+
+## Warning in par(usr): argument 1 does not name a graphical parameter
+
+## Warning in par(usr): argument 1 does not name a graphical parameter
+\end{verbatim}
+
+\includegraphics{correlación_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor.test}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{longitud, data}\SpecialCharTok{$}\NormalTok{peso)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's product-moment correlation
+## 
+## data:  data$longitud and data$peso
+## t = 19.989, df = 38, p-value < 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.9170685 0.9764377
+## sample estimates:
+##       cor 
+## 0.9555894
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(correlation)}
+\NormalTok{resultados }\OtherTok{\textless{}{-}} \FunctionTok{correlation}\NormalTok{(data)}
+\NormalTok{resultados}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # Correlation Matrix (pearson-method)
+## 
+## Parameter1 | Parameter2 |         r |        95% CI |     t(38) |         p
+## ---------------------------------------------------------------------------
+## longitud   |      ancho |      0.40 | [ 0.10, 0.63] |      2.71 | 0.040*   
+## longitud   |     grosor |  4.68e-03 | [-0.31, 0.32] |      0.03 | > .999   
+## longitud   |       peso |      0.96 | [ 0.92, 0.98] |     19.99 | < .001***
+## ancho      |     grosor | -1.29e-03 | [-0.31, 0.31] | -7.98e-03 | > .999   
+## ancho      |       peso |      0.51 | [ 0.23, 0.71] |      3.64 | 0.004**  
+## grosor     |       peso |     -0.06 | [-0.36, 0.26] |     -0.36 | > .999   
+## 
+## p-value adjustment method: Holm (1979)
+## Observations: 40
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggpubr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: ggplot2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{ggscatter}\NormalTok{(data, }\AttributeTok{x =} \StringTok{"longitud"}\NormalTok{, }\AttributeTok{y =} \StringTok{"peso"}\NormalTok{,}
+          \AttributeTok{add =} \StringTok{"reg.line"}\NormalTok{, }\AttributeTok{conf.int =} \ConstantTok{TRUE}\NormalTok{,}
+          \AttributeTok{cor.coef =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{cor.method =} \StringTok{"pearson"}\NormalTok{,}
+          \AttributeTok{xlab =} \StringTok{"longitud piezas (mm)"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Peso piezas (mg)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{correlación_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(corrplot)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## corrplot 0.92 loaded
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{corrplot}\NormalTok{(}\FunctionTok{cor}\NormalTok{(data))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{correlación_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(corrplot)}
+\FunctionTok{corrplot.mixed}\NormalTok{(}\FunctionTok{cor}\NormalTok{(data))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{correlación_files/figure-latex/unnamed-chunk-7-1.pdf}
+\#\#\# Ejercicio VI
+
+A partir de las siguientes variables
+
+\begin{itemize}
+\tightlist
+\item
+  Distancia (km): 1.1,100.2,90.3,5.4,57.5,6.6,34.7,65.8,57.9,86.1
+\item
+  Número de cuentas (valor absoluto): 110,2,6,98,40,94,31,5,8,10
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Crea 2 vectores: ``distancia'' y ``n\_piezas''
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{distancia }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{1.1}\NormalTok{,}\FloatTok{100.2}\NormalTok{,}\FloatTok{90.3}\NormalTok{,}\FloatTok{5.4}\NormalTok{,}\FloatTok{57.5}\NormalTok{,}\FloatTok{6.6}\NormalTok{,}\FloatTok{34.7}\NormalTok{,}\FloatTok{65.8}\NormalTok{,}\FloatTok{57.9}\NormalTok{,}\FloatTok{86.1}\NormalTok{)}
+\NormalTok{n\_piezas }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{110}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{98}\NormalTok{,}\DecValTok{40}\NormalTok{,}\DecValTok{94}\NormalTok{,}\DecValTok{31}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{10}\NormalTok{)}
+\NormalTok{dist\_ncuent }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(distancia,n\_piezas)}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(dist\_ncuent)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}rr@{}}
+\toprule\noalign{}
+distancia & n\_piezas \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1.1 & 110 \\
+100.2 & 2 \\
+90.3 & 6 \\
+5.4 & 98 \\
+57.5 & 40 \\
+6.6 & 94 \\
+34.7 & 31 \\
+65.8 & 5 \\
+57.9 & 8 \\
+86.1 & 10 \\
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Calcula el coeficiente de correlación La correlación es de -0.9249824
+\item
+  calcula el nivel de significacncia El nivel de significancia es
+  0.0001265
+\item
+  Intervalo de confianza al 95\% en relación con el coeficiente de
+  correlación. El intervalo de confianza al 95\% es {[}-0.9824414,
+  -0.7072588{]}.
+\item
+  ¿Que intensidad y dirección presentan ambas variables? Al ser un
+  coeficiente negativo, la dirección es inversa entre ambas variables y
+  su intensidad es de 0.9249824, bastante cercana al máximo que es 1
+\item
+  ¿Es significativa esta relación? Si la relación es significativa pues
+  el nivel de significancia es inferior a 0.05 o lo que es lo mismo
+  inferior al 5\% de posibilidades de que esta relación sea resultado
+  del azar.
+\item
+  ¿Resultaría apropiado afirmar la correlación (o no) entre variables
+  con un tamaño muestral tan reducido (n=10)? Los datos muestran que es
+  una correlación significativa, por lo que cabría experar que aunque
+  aumenten el número de muestras, no debería haber una variación
+  significativa. Porque hemos comprobado que la correlación no se debe
+  al azar sino que responde a una correlación lineal, que se debería
+  mantener conforme aumente el número de muestras.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor.test}\NormalTok{(dist\_ncuent}\SpecialCharTok{$}\NormalTok{distancia, dist\_ncuent}\SpecialCharTok{$}\NormalTok{n\_piezas)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's product-moment correlation
+## 
+## data:  dist_ncuent$distancia and dist_ncuent$n_piezas
+## t = -6.8847, df = 8, p-value = 0.0001265
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.9824414 -0.7072588
+## sample estimates:
+##        cor 
+## -0.9249824
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{correlation}\SpecialCharTok{::}\FunctionTok{correlation}\NormalTok{(dist\_ncuent)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # Correlation Matrix (pearson-method)
+## 
+## Parameter1 | Parameter2 |     r |         95% CI |  t(8) |         p
+## --------------------------------------------------------------------
+## distancia  |   n_piezas | -0.92 | [-0.98, -0.71] | -6.88 | < .001***
+## 
+## p-value adjustment method: Holm (1979)
+## Observations: 10
+\end{verbatim}
+
+\end{document}

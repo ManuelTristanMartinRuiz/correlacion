@@ -1,18 +1,22 @@
 ---
-title: "correlación"
+title: "Correlación"
 author: "Manuel Martín"
 date: "2024-02-26"
-output: html_document
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
 ---
 
-###Ejercicio 1
+### Ejercicio 1
 
-```{r, echo=True}
+```{r, echo = TRUE}
 library(readxl)
 data <- as.data.frame(read_excel("C:/Users/manueltristan/Documents/correlacion/data.xlsx"))
 View(data)
 print(data)
 ```
+### Ejercicio 2
 
 ```{r}
 #Función para agregar coeficientes de correlación
@@ -34,16 +38,19 @@ pairs(data,
       lower.panel = panel.smooth) #Curvas de regresión suavizadas
 ```
 
-```{r, echo=True}
+### Ejercicio 3
+```{r, echo = TRUE}
 cor.test(data$longitud, data$peso)
 ```
+### Ejercicio 4
 
-```{r, warning=FALSE}
+```{r, warning = FALSE}
 library(correlation)
 resultados <- correlation(data)
 resultados
 ```
-```{r, echo=TRUE}
+### Ejercicio 5
+```{r, echo = TRUE}
 library(ggpubr)
 library(ggplot2)
 ggscatter(data, x = "longitud", y = "peso",
@@ -58,9 +65,10 @@ corrplot(cor(data))
 ```
 ```{r }
 library(corrplot)
-corrplot.mi(cor(data))
+corrplot.mixed(cor(data))
 ```
-### Ejercicio VI
+
+### Ejercicio 6
 
 A partir de las siguientes variables
 
@@ -86,12 +94,12 @@ Al ser un coeficiente negativo, la dirección es inversa entre ambas variables y
 f. ¿Es significativa esta relación?
 Si la relación es significativa pues el nivel de significancia es inferior a 0.05 o lo que es lo mismo inferior al 5% de posibilidades de que esta relación sea resultado del azar. 
 g. ¿Resultaría apropiado afirmar la correlación (o no) entre variables con un tamaño muestral tan reducido (n=10)?
-Los datos muestran que es una correlación significativa, por lo que cabría experar que aunque aumenten el número de muestras, no debería haber una variación significativa. Porque hemos comprobado que la correlación no se debe al azar sino que responde a una correlación lineal, que se debería mantener conforme aumente el número de muestras. 
+Los datos muestran que es una correlación significativa, por lo que cabría experar que aunque aumenten el número de muestras, no debería haber una variación significativa. Porque hemos comprobado que la correlación no se debe al azar sino que responde a una correlación lineal, que se debería mantener conforme aumente el número de muestras. Sin embargo, en estadistica para que sea significativo se suelen emplear más muestras, n=30.
 
-```{r, echo=True}
+```{r, echo = TRUE}
 cor.test(dist_ncuent$distancia, dist_ncuent$n_piezas)
 ```
 
-```{r, echo=True}
+```{r, echo = TRUE}
 correlation::correlation(dist_ncuent)
 ```
