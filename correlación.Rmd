@@ -52,3 +52,26 @@ ggscatter(data, x = "longitud", y = "peso",
           xlab = "longitud piezas (mm)", ylab = "Peso piezas (mg)")
 ```
 
+```{r }
+library(corrplot)
+corrplot(cor(data))
+```
+```{r }
+library(corrplot)
+corrplot.mi(cor(data))
+```
+### Ejercicio VI
+
+A partir de las siguientes variables
+
+- Distancia (km): 1.1,100.2,90.3,5.4,57.5,6.6,34.7,65.8,57.9,86.1
+- Número de cuentas (valor absoluto): 110,2,6,98,40,94,31,5,8,10
+
+a. Crea 2 vectores: "distancia" y "n_piezas"
+
+```{r }
+distancia <- c(1.1,100.2,90.3,5.4,57.5,6.6,34.7,65.8,57.9,86.1)
+n_piezas <- c(110,2,6,98,40,94,31,5,8,10)
+dist_ncuent <- data.frame(distancia,n_piezas)
+knitr::kable(dist_ncuent)
+```
