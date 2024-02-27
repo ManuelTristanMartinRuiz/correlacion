@@ -43,3 +43,12 @@ library(correlation)
 resultados <- correlation(data)
 resultados
 ```
+```{r, echo=TRUE}
+library(ggpubr)
+library(ggplot2)
+ggscatter(data, x = "longitud", y = "peso",
+          add = "reg.line", conf.int = TRUE,
+          cor.coef = TRUE, cor.method = "pearson",
+          xlab = "longitud piezas (mm)", ylab = "Peso piezas (mg)")
+```
+
