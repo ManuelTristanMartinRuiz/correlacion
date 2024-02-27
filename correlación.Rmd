@@ -75,3 +75,23 @@ n_piezas <- c(110,2,6,98,40,94,31,5,8,10)
 dist_ncuent <- data.frame(distancia,n_piezas)
 knitr::kable(dist_ncuent)
 ```
+b. Calcula el coeficiente de correlación
+La correlación es de -0.9249824 
+c. calcula el nivel de significacncia
+El nivel de significancia es 0.0001265
+d. Intervalo de confianza al 95% en relación con el coeficiente de correlación.
+El intervalo de confianza al 95% es [-0.9824414, -0.7072588].
+e. ¿Que intensidad y dirección presentan ambas variables?
+Al ser un coeficiente negativo, la dirección es inversa entre ambas variables y su intensidad es de 0.9249824, bastante cercana al máximo que es 1
+f. ¿Es significativa esta relación?
+Si la relación es significativa pues el nivel de significancia es inferior a 0.05 o lo que es lo mismo inferior al 5% de posibilidades de que esta relación sea resultado del azar. 
+g. ¿Resultaría apropiado afirmar la correlación (o no) entre variables con un tamaño muestral tan reducido (n=10)?
+Los datos muestran que es una correlación significativa, por lo que cabría experar que aunque aumenten el número de muestras, no debería haber una variación significativa. Porque hemos comprobado que la correlación no se debe al azar sino que responde a una correlación lineal, que se debería mantener conforme aumente el número de muestras. 
+
+```{r, echo=True}
+cor.test(dist_ncuent$distancia, dist_ncuent$n_piezas)
+```
+
+```{r, echo=True}
+correlation::correlation(dist_ncuent)
+```
